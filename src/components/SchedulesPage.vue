@@ -1,8 +1,8 @@
-<template>
+schedules<template>
 
   <div>
     <div class="wrapper">
-      <div class="table-assignments">
+      <div class="table-schedules">
         <table>
           <thead>
             <tr>
@@ -15,13 +15,13 @@
             <tr v-for="(rows, i) in table.slice(1)">
               <td class="freeze-col">{{ table[i + 1][0].name }}</td>
               <td v-for="(cols, j) in table[i + 1].slice(1)" >
-                <AssignmentCell
+                <ScheduleCell
                   :cellValue="table[i + 1][j + 1].name"
                   :row="i + 1" :col="j + 1"
                   :tableColors="tableColors"
                   @valueChanged="table[i + 1][j + 1].name = $event"
                   >
-                </AssignmentCell>
+                </ScheduleCell>
               </td>
             </tr>
           </tbody>
@@ -35,13 +35,13 @@
 
 <script>
 
-import AssignmentCell from './AssignmentCell.vue';
+import ScheduleCell from './ScheduleCell.vue';
 
 export default {
-  name: 'AssignmentsPage',
+  name: 'schedulesPage',
 
   components: {
-    AssignmentCell
+    ScheduleCell
   },
 
   props: {
@@ -53,9 +53,9 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
-.table-assignments {
+.table-schedules {
   max-height: 80vh;
   overflow: auto;
   max-width: 100vw;
@@ -77,11 +77,19 @@ td, th {
   white-space: nowrap;
 }
 
+.table-schedules td:nth-child(odd) input {
+  width: 25px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+}
+
 td {
   border-right: solid 1px black;
   border-bottom: solid 1px black;
   font-size: 14px;
+  overflow: hidden;
 }
+
 td:first-child {
   padding-right: 2px;
   padding-left: 2px;

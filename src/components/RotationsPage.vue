@@ -2,7 +2,7 @@
 
   <div>
     <div class="wrapper">
-      <div class="table-assignments">
+      <div class="table-rotations">
         <table>
           <thead>
             <tr>
@@ -15,13 +15,13 @@
             <tr v-for="(rows, i) in table.slice(1)">
               <td class="freeze-col">{{ table[i + 1][0].name }}</td>
               <td v-for="(cols, j) in table[i + 1].slice(1)" >
-                <AssignmentCell
+                <RotationCell
                   :cellValue="table[i + 1][j + 1].name"
                   :row="i + 1" :col="j + 1"
                   :tableColors="tableColors"
                   @valueChanged="table[i + 1][j + 1].name = $event"
                   >
-                </AssignmentCell>
+                </RotationCell>
               </td>
             </tr>
           </tbody>
@@ -35,13 +35,13 @@
 
 <script>
 
-import AssignmentCell from './AssignmentCell.vue';
+import RotationCell from './RotationCell.vue';
 
 export default {
-  name: 'AssignmentsPage',
+  name: 'RotationsPage',
 
   components: {
-    AssignmentCell
+    RotationCell
   },
 
   props: {
@@ -53,17 +53,17 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
-.table-assignments {
+.table-rotations {
   max-height: 80vh;
   overflow: auto;
   max-width: 100vw;
 }
 
 table {
-  margin-left: 20px;
-  margin-bottom: 20px;
+margin-left: 20px;
+margin-bottom: 20px;
   border-collapse: separate;
   border-spacing: 0;
   position: relative;

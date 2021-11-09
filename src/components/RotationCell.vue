@@ -1,11 +1,12 @@
 <template>
 
-<div>
+<div class="cell"
+  v-bind:style="{backgroundColor: cellBackgroundColor(cellValue)}"
+  >
   <input type="text"
     :value='cellValue'
     v-on:keyup.enter="updateValue"
     v-on:blur="updateValue"
-    v-bind:style="{backgroundColor: cellBackgroundColor(cellValue)}"
     >
   </input>
 </div>
@@ -15,7 +16,7 @@
 <script>
 
 export default {
-  name: 'InputCell',
+  name: 'RotationCell',
 
   data() {
     return {
@@ -61,6 +62,9 @@ export default {
     },
 
     getDisplayValue(value) {
+      if (value == "") {
+        return value;
+      }
       value = value.toLowerCase();
       if (value != "") {
         var index = this.classes.findIndex(obj => obj.name.toLowerCase() == value);
@@ -75,6 +79,13 @@ export default {
           }
         }
       }
+
+      const words = value.split(" ");
+      for (let i = 0; i < words.length; i++) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      value = words.join(" ");
+
       return value;
     }
   },
@@ -99,6 +110,7 @@ input {
   height: 100%;
   font-size: 14px;
   background-color:transparent;
+  padding: 2px;
 }
 
 input:focus, textarea:focus, select:focus{

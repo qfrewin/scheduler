@@ -3,18 +3,22 @@
     <div class="header-container">
       <img src="/images/logo_light.svg" width="300px">
       <div class="links">
-        <router-link to="/">
+        <router-link to="/" exact-active-class="active">
           <button>Home</button>
         </router-link>
-        <router-link to="/assignments">
+        <router-link to="/rotations" exact-active-class="active">
+          <button>Rotations</button>
+        </router-link>
+        <router-link to="/assignments" exact-active-class="active">
           <button>Asignments</button>
+        </router-link>
+        <router-link to="/schedules" exact-active-class="active">
+          <button>Schedules</button>
         </router-link>
       </div>
     </div>
 
-
-
-    <div class="content">
+    <div class="content-container">
       <router-view/>
     </div>
 
@@ -34,33 +38,27 @@
   box-sizing: border-box;
 }
 
-.content {
+.active {
+  background-color: #a9e7e5;
+}
+
+.content-container {
   display: flex;
-  justify-content: start;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   height: auto;
+  overflow-x: hidden;
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 .header-container {
@@ -71,12 +69,16 @@
   width: 100%;
   background-color: #0abab4;
   padding: 10px 50px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #2c3e50;
+  color: #2c3e50;
 }
 
 .links {
   grid-area: side;
   display: flex;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .links
@@ -90,14 +92,17 @@ button {
 button {
   color: #737373;
 }
+
 .footer-container
 button {
   color: #daf5f4;
 }
+
 .header-container
 button:hover {
   background-color: #daf5f4;
 }
+
 .footer-container
 button:hover {
   background-color: #0abab4;

@@ -1,11 +1,11 @@
-<template>
+Schedules<template>
 <div>
   <div class="table-title">
-    <h1>Assignments Page</h1>
+    <h1>Schedules Page</h1>
   </div>
   <div class="current-table-container">
     <div class="current-table">
-      <AssignmentsPage :classes="classes" :tableColors="tableColors" :table="table"/>
+      <SchedulesPage :classes="classes" :tableColors="tableColors" :table="table"/>
     </div>
   </div>
 </div>
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-  import AssignmentsPage from "../components/AssignmentsPage.vue";
+  import SchedulesPage from "../components/SchedulesPage.vue";
 
   export default {
-    name: 'Assignments',
+    name: 'Schedules',
 
     components: {
-      AssignmentsPage
+      SchedulesPage
     },
 
     computed: {
@@ -30,7 +30,7 @@
         return this.$root.$data.tableColors;
       },
       table() {
-        return this.$root.$data.tables.assignmentTable;
+        return this.$root.$data.tables.scheduleTable;
       }
     }
   }
