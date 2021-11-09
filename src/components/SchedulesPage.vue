@@ -48,6 +48,12 @@ export default {
     classes: Array,
     tableColors: Object,
     table: Array
+  },
+
+  methods: {
+    makeId(row, col) {
+      return "schedules row: " + i + " col: " + j;
+    }
   }
 }
 

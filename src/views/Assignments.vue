@@ -48,6 +48,7 @@
 .table-title {
   width: 100vw;
   padding: 10px;
+  color: #2c3e50;
 }
 
 </style>

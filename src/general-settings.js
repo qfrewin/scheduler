@@ -35,7 +35,6 @@ function generateTimeBlocks(startTime, endTime, block) {
     newTimes[i] = IntToTime(newTimes[i]);
   }
 
-  console.log(newTimes);
   return newTimes;
 }
 

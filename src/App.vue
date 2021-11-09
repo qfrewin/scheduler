@@ -24,7 +24,7 @@
 
     <div class="footer-container">
       <div class="links">
-        <a href="https://github.com/qfrewin/creativeProject3"><button>GitHub</button></a>
+        <a href="https://github.com/qfrewin/scheduler"><button>GitHub</button></a>
       </div>
     </div>
   </div>
@@ -116,5 +116,6 @@ button:hover {
   width: 100%;
   background-color: #356e6c;
   padding: 10px 50px;
+  border-top: 2px #2c3e50 solid;
 }
 </style>

@@ -53,7 +53,6 @@ function createTable(array, spacer = 0) {
     }
     result.push(row);
   }
-  console.log(result);
   return result;
 }
 
